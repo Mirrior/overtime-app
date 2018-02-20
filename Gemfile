@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rspec-rails', '~> 3.7', '>= 3.7.2'
 gem 'database_cleaner', '~> 1.6', '>= 1.6.2'
 gem 'devise', '~> 4.4', '>= 4.4.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
