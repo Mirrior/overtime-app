@@ -1,5 +1,5 @@
 FactoryBot.define do
-  sequence :email do |n|
+      sequence :email do |n|
     "tester#{n}@example.com"
   end
 
