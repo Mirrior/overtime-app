@@ -12,15 +12,14 @@ describe 'Navigate' do
       visit edit_post_path(@post)
     end
 
-    it 'has a status that can edited on the form by an admin' do
-
+    it 'Has a status that can edited on the form by an admin' do
       choose 'post_status_approved'
       click_on 'Save'
 
       expect(@post.reload.status).to eq('approved')
     end
 
-    it 'cannot be edited by a non admin' do
+    it 'Cannot be edited by a non admin' do
       logout(:user)
       user = FactoryBot.create(:user)
       login_as(user, :scope => :user)
@@ -30,5 +29,16 @@ describe 'Navigate' do
       expect(page).to_not have_content('Approved')
     end
 
+    it 'Should not be editable by the post creator if status is approved' do
+      logout(:user)
+      user = FactoryBot.create(:user)
+      login_as(user, :scope => :user)
+
+      @post.update(user_id: user.id, status: 'approved')
+
+      visit edit_post_path(@post)
+
+      expect(current_path).to eq(root_path)
+    end 
   end
 end
