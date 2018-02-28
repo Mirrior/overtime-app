@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :post do
-    user
     date Date.today
     rationale "Maybe in Russia"
+    user
   end
 
   factory :second_post, class: Post do
