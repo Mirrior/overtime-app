@@ -23,4 +23,5 @@
 ##Refactor TODOs:
 - Refactor user integration test in post_spec
 - Refactor posts/_form for admin user with status
-- Fix post_spec.rb:79
+- Fix post_spec.rb:79 to use factories
+- Fix post_spec.rb:52 to have correct user referecne and not require update

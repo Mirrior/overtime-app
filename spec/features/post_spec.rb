@@ -19,10 +19,28 @@ describe 'Navigate' do
     end
 
     it "Has a list of posts" do
-      post1 = FactoryBot.create(:post)
-      post2 = FactoryBot.create(:second_post)
+      post1 = FactoryBot.create(:post, user_id: @user.id)
+      post2 = FactoryBot.create(:second_post, user_id: @user.id)
       visit posts_path
       expect(page).to have_content(/Maybe in Russia|Probably in Russia/)
+
+    end
+
+    it 'has a scope so that only post creators can see there posts' do
+      post1 = Post.create(date: Date.today, rationale: "Nooooo work", user_id: @user.id)
+      post2 = Post.create(date: Date.today, rationale: "Nooooo work", user_id: @user.id)
+
+      other_user = User.create(first_name: "Non",
+                                        last_name: "Authorized",
+                                        email: "something@from.hell",
+                                        password: "asdfasdf",
+                                        password_confirmation: "asdfasdf"
+                                       )
+      post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: other_user.id)
+
+      visit posts_path
+
+      expect(page).to_not have_content(/This shouldn't be seen/)
     end
   end
 
@@ -38,6 +56,7 @@ describe 'Navigate' do
   describe 'Delete' do
     it 'can be deleted' do
       @post = FactoryBot.create(:post)
+      @post.update(user_id: @user.id)
       visit posts_path
 
       click_link("delete_post_#{@post.id}_from_index")
@@ -73,10 +92,10 @@ describe 'Navigate' do
 
   describe 'Edit' do
     before do 
-      @post = FactoryBot.create(:post)
+      @post = FactoryBot.create(:post, user_id: @user.id)
     end
 
-    it 'can be edited' do
+    it 'Can be edited' do
       visit edit_post_path(@post)
 
       fill_in 'post[date]', with: Date.today
