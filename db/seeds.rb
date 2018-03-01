@@ -20,7 +20,7 @@ AdminUser.create!(first_name: "NotEdward",
 puts "admin user created"
 
 100.times do |post|
-  Post.create!(date: Date.today, rationale: "In Russia#{post}", user_id: User.first.id)
+  Post.create!(date: Date.today, rationale: "In Russia#{post}", user_id: User.first.id, overtime_request: 2.5)
 end
 
 puts "100 posts have been created"
