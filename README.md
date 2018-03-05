@@ -21,5 +21,5 @@
 - X Icons from glyphicons
 - X Update the styles for forms
 
-##Refactor TODOs:
-- X Refactor posts/_form for admin user with status
+## TODOs:
+- Integrate validation for phone attributes in User
