@@ -3,7 +3,8 @@
                last_name: "Snowden#{user}", 
                email: "test#{user}@test.test", 
                password: "aaaaaa", 
-               password_confirmation: "aaaaaa"
+               password_confirmation: "aaaaaa",
+               phone: "3852437428"
               )
 
 end
@@ -14,7 +15,8 @@ AdminUser.create!(first_name: "NotEdward",
                last_name: "NotSnowden", 
                email: "admin@test.test", 
                password: "ssssss", 
-               password_confirmation: "ssssss"
+               password_confirmation: "ssssss",
+               phone: "3852437428"
               )
 
 puts "admin user created"
