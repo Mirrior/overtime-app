@@ -4,9 +4,11 @@
   <thead>
     <%= render "audit_log_table_header" %>
   </thead>
-  <tbody>
+  <tbody id="audit_logs">
     <%= render @audit_logs %>
   </tbody>
 </table>
 
-<%= paginate @audit_logs %>
+<div id="paginator">
+  <%= paginate @audit_logs, remote: true %>
+</div>
