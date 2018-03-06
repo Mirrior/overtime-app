@@ -28,7 +28,6 @@ describe 'Navigate' do
       post2 = FactoryBot.create(:second_post, user_id: user.id)
       visit posts_path
       expect(page).to have_content(/Maybe in Russia|Probably in Russia/)
-
     end
 
     it 'has a scope so that only post creators can see there posts' do
