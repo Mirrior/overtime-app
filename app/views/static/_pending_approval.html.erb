@@ -1,6 +1,8 @@
 <% pending_approvals.each do |pending_approval| %>
   <div class="homepage-block col-md-3">
-    <h4><%= pending_approval.user.full_name%></h4>
+    <h4>
+      <%= pending_approval.user.full_name %>
+    </h4>
 
     <p>
       <span class="pending-details">Date Submitted:</span> <%= pending_approval.date %>
