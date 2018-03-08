@@ -17,3 +17,5 @@
 - X Needs to be documented if employee did not log overtime
 
 ## TODOs:
+
+- Set up Application Mailer email
