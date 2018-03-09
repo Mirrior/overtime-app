@@ -18,4 +18,4 @@
 
 ## TODOs:
 
-- Set up Application Mailer email
+- Set up Application Mailer email along with an email server (currently set up for sparkpost)
