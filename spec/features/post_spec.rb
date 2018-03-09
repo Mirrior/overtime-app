@@ -31,7 +31,7 @@ describe 'Navigate' do
     end
 
     it 'has a scope so that only post creators can see there posts' do
-      other_user = User.create(first_name: "Non", last_name: "Authorized", email: "something@from.hell", password: "asdfasdf", password_confirmation: "asdfasdf", phone: "5555555555")
+      other_user = User.create(first_name: "Non", last_name: "Authorized", email: "something@something.something", password: "asdfasdf", password_confirmation: "asdfasdf", phone: "5555555555")
       post_from_other_user = Post.create(date: Date.today, rationale: "This shouldn't be seen", user_id: other_user.id, overtime_request: 3.5)
 
       visit posts_path
@@ -42,6 +42,8 @@ describe 'Navigate' do
 
   describe 'new' do
     it 'has a link form the homepage' do
+      employee = Employee.create(first_name: "Employee", last_name: "User", email: "something@something.something", password: "asdfasdf", password_confirmation: "asdfasdf", phone: "5555555555")
+      login_as(employee, :scope => :user)
       visit root_path
 
       click_link("new_post_from_nav")
