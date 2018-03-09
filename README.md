@@ -17,10 +17,10 @@
 - X Needs to be documented if employee did not log overtime
 - X Create audit log for each text message
 - X Need to update end_date when confirmed
-- Need to update the audit log status when an overtime status is rejected
-- Update buttons on employee homepage so the show on modible
-- Update buttons to include time span
-- Update buton sort order on employee homepage
+- X Need to update the audit log status when an overtime status is rejected
+- X Update buttons on employee homepage so the show on modible
+- X Update buttons to include time span
+- X Update buton sort order on employee homepage
 - Remove unnecessary nav bar buttons for managers
 - Fix admin dashboard bug
 - Implement Honeybadger error reporting
