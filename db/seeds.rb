@@ -1,4 +1,4 @@
-Employee.create!(first_name: "Edward",
+@employee = Employee.create!(first_name: "Edward",
              last_name: "Snowden", 
              email: "test@test.test", 
              password: "aaaaaa", 
@@ -19,9 +19,9 @@ AdminUser.create!(first_name: "NotEdward",
 
 puts "admin user created"
 
-AuditLog.create!(user_id: Employee.first.id, status: 0, start_date: (Date.today - 6.days))
-AuditLog.create!(user_id: Employee.first.id, status: 0, start_date: (Date.today - 13.days))
-AuditLog.create!(user_id: Employee.first.id, status: 0, start_date: (Date.today - 20.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 6.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 13.days))
+AuditLog.create!(user_id: @employee.id, status: 0, start_date: (Date.today - 20.days))
 
 puts "3 audit logs have been created"
 
